@@ -1,0 +1,17 @@
+function CheckSales() {
+// Fetch the monthly sales
+var monthSalesRange = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ChecagemDoValorDaCelulaD2").getRange("D2");
+var monthSales = monthSalesRange.getValue();
+// Check totals sales
+if (monthSales < 16000){
+  function sendEmail() {
+  // Fetch the email address
+var emailAddress = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Nome_Email").getRange("B2").getValue();
+
+// Send Alert Email.
+var message = "This is your Alert email!"; // Second column
+var subject = "Your Google Spreadsheet Alert";
+MailApp.sendEmail(emailAddress, subject, message);
+}
+}
+}
